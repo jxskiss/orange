@@ -69,7 +69,7 @@ function _M:build_app()
     end)
 
     -- routes
-    app:use(router(config, store)())
+    app:use("/_api", router(config, store)())
 
     -- 404 error
     app:use(function(req, res, next)
