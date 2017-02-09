@@ -1,6 +1,6 @@
 local mysql = require("resty.mysql")
 local cjson = require("cjson")
-local logger = require("bin.utils.logger")
+local logger = require("orange.bin.utils.logger")
 
 local _M = {}
 

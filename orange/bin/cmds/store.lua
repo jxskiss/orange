@@ -1,7 +1,7 @@
-local logger = require("bin.utils.logger")
-local args_util = require("bin.utils.args_util")
-local db_util = require("bin.utils.db_util")
-local command_util = require("bin.utils.command_util")
+local logger = require("orange.bin.utils.logger")
+local args_util = require("orange.bin.utils.args_util")
+local db_util = require("orange.bin.utils.db_util")
+local command_util = require("orange.bin.utils.command_util")
 
 local _M = {}
 
@@ -72,7 +72,7 @@ function _M.execute(origin_args)
         end
         logger:info("args end.")
     end
-    
+
     local store_mysql = {
         timeout = 20000,
         connect_config = {
@@ -84,7 +84,7 @@ function _M.execute(origin_args)
             max_packet_size = 1048576
         }
     }
-    
+
     local db = db_util:new(store_mysql)
     local sql = command_util.read_file(args.file)
     db:exec(sql)

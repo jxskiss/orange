@@ -21,7 +21,7 @@ end
 
 return function(config, store)
     local auth_router = lor:Router()
-    local user_model = require("dashboard.model.user")(config)
+    local user_model = require("orange.dashboard.model.user")(config)
 
     auth_router:get("/login", function(req, res, next)
         res:render("login")
@@ -49,7 +49,7 @@ return function(config, store)
         if result and not err then
             if result and #result == 1 then
                 isExist = true
-                user = result[1] 
+                user = result[1]
                 userid = user.id
             end
         else

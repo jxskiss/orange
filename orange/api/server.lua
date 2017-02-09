@@ -41,7 +41,7 @@ function _M:build_app()
     local config = self.config
     local store = self.store
     local app = self.app
-    local router = require("api.router")
+    local router = require("orange.api.router")
 
     local auth_enable = config and config.api and config.api.auth_enable
     local credentials = config and config.api and config.api.credentials
@@ -64,7 +64,7 @@ function _M:build_app()
                 end
             end
         end
-            
+
         auth_failed(res)
     end)
 

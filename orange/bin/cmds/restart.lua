@@ -1,7 +1,7 @@
-local ngx_handle = require("bin.utils.ngx_handle")
-local start_cmd = require("bin.cmds.start")
-local stop_cmd = require("bin.cmds.stop")
-local logger = require("bin.utils.logger")
+local ngx_handle = require("orange.bin.utils.ngx_handle")
+local start_cmd = require("orange.bin.cmds.start")
+local stop_cmd = require("orange.bin.cmds.stop")
+local logger = require("orange.bin.utils.logger")
 
 
 local _M = {}

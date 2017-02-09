@@ -1,4 +1,4 @@
-local ansicolors = require("bin.lib.ansicolors")
+local ansicolors = require("orange.bin.lib.ansicolors")
 
 local colors = {}
 

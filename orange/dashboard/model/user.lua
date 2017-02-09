@@ -1,4 +1,4 @@
-local DB = require("dashboard.model.db")
+local DB = require("orange.dashboard.model.db")
 
 
 return function(config)

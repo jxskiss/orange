@@ -1,4 +1,4 @@
-local logger = require("bin.utils.logger")
+local logger = require("orange.bin.utils.logger")
 
 local function create_dirs(necessary_dirs)
     if necessary_dirs then
@@ -13,8 +13,8 @@ local function remove_ngx_conf(ngx_conf)
 end
 
 local function ngx_command(args)
-    if not args then 
-        error("error args to execute nginx command.") 
+    if not args then
+        error("error args to execute nginx command.")
         os.exit(1)
     end
 

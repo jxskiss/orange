@@ -1,6 +1,6 @@
 local version = require("orange.version")
-local args_util = require("bin.utils.args_util")
-local logger = require("bin.utils.logger")
+local args_util = require("orange.bin.utils.args_util")
+local logger = require("orange.bin.utils.logger")
 
 local cmds = {
     start = "Start the Orange Gateway",
@@ -47,7 +47,7 @@ local function exec(args)
         return
     end
 
-    local cmd = require("bin.cmds." .. cmd)
+    local cmd = require("orange.bin.cmds." .. cmd)
     local cmd_exec = cmd.execute
     local cmd_help = cmd.help
 

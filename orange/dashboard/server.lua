@@ -1,10 +1,10 @@
 local string_find = string.find
 local session_middleware = require("lor.lib.middleware.session")
-local check_login_middleware = require("dashboard.middleware.check_login")
-local check_is_admin_middleware = require("dashboard.middleware.check_is_admin")
-local dashboard_router = require("dashboard.routes.dashboard")
-local auth_router = require("dashboard.routes.auth")
-local admin_router = require("dashboard.routes.admin")
+local check_login_middleware = require("orange.dashboard.middleware.check_login")
+local check_is_admin_middleware = require("orange.dashboard.middleware.check_is_admin")
+local dashboard_router = require("orange.dashboard.routes.dashboard")
+local auth_router = require("orange.dashboard.routes.auth")
+local admin_router = require("orange.dashboard.routes.admin")
 local lor = require("lor.index")
 
 local _M = {}
@@ -30,7 +30,7 @@ function _M:build_app()
     app:conf("view enable", true)
     app:conf("view engine",  "tmpl")
     app:conf("view ext", "html")
-    app:conf("views",   views_path or "./dashboard/views")
+    app:conf("views",   views_path or "./orange/dashboard/views")
 
     -- support authorization for dashboard
     if config.dashboard and config.dashboard.auth and config.dashboard.auth == true then

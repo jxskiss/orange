@@ -21,7 +21,7 @@ end
 
 return function(config, store)
     local admin_router = lor:Router()
-    local user_model = require("dashboard.model.user")(config)
+    local user_model = require("orange.dashboard.model.user")(config)
 
     admin_router:get("/user/manage", function(req, res, next)
         res:render("user_manage")
@@ -50,7 +50,7 @@ return function(config, store)
             })
         end
 
-        local username = req.body.username 
+        local username = req.body.username
         local password = req.body.password
         local enable = req.body.enable
 
@@ -108,12 +108,12 @@ return function(config, store)
                     data = {
                         users = user_model:query_all()
                     }
-                })  
+                })
             else
                 return res:json({
                     success = false,
                     msg = "新建用户失败."
-                }) 
+                })
             end
         end
     end)
@@ -134,7 +134,7 @@ return function(config, store)
 
         local password = req.body.new_pwd
         local password_len = slen(password)
-        
+
 
         local user_id = req.body.user_id
         if not user_id then
@@ -154,12 +154,12 @@ return function(config, store)
                     data = {
                         users = user_model:query_all()
                     }
-                })  
+                })
             else
                 return res:json({
                     success = false,
                     msg = "修改用户失败."
-                }) 
+                })
             end
         else
             if password_len<6 or password_len>50 then
@@ -178,12 +178,12 @@ return function(config, store)
                     data = {
                         users = user_model:query_all()
                     }
-                })  
+                })
             else
                 return res:json({
                     success = false,
                     msg = "修改用户失败."
-                }) 
+                })
             end
         end
     end)
@@ -218,14 +218,14 @@ return function(config, store)
                 data = {
                     users = user_model:query_all()
                 }
-            })  
+            })
         else
             return res:json({
                 success = false,
                 msg = "删除用户失败."
-            }) 
+            })
         end
-        
+
     end)
 
 
