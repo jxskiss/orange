@@ -15,7 +15,7 @@ local ffi_cdef = ffi.cdef
 local ffi_typeof = ffi.typeof
 local ffi_new = ffi.new
 local ffi_str = ffi.string
-local C = ffi.C
+local C = (ffi.os=="Windows" and ffi.load 'libeay32' or ffi.C)
 
 ffi_cdef[[
 typedef unsigned char u_char;
