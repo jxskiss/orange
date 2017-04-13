@@ -71,22 +71,19 @@ function _M:build_app()
     -- routes
     app:use("/_api", router(config, store)())
 
-    -- 404 error
-    app:use(function(req, res, next)
+    -- error handle middleware
+    app:erroruse(function(err, req, res, next)
+        ngx.log(ngx.ERR, err)
         if req:is_found() ~= true then
-            res:status(404):json({
+            return res:status(404):json({
                 success = false,
                 msg = "404! sorry, not found."
             })
         end
-    end)
 
-    -- error handle middleware
-    app:erroruse(function(err, req, res, next)
-        ngx.log(ngx.ERR, err)
         res:status(500):json({
             success = false,
-            msg = "500! unknown error."
+            msg = "500! server error."
         })
     end)
 end

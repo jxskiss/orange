@@ -3,11 +3,14 @@ ORANGE_HOME ?= /usr/local/openresty
 ORANGE_BIN ?= /usr/local/bin/orange
 
 .PHONY: test install show
+init-config:
+	@ test -f conf/nginx.conf   || (cp conf/nginx.conf.example conf/nginx.conf && echo "copy nginx.conf")
+	@ test -f conf/orange.conf  || (cp conf/orange.conf.example conf/orange.conf && echo "copy orange.conf")
 
 test:
 	@echo "to be continued..."
 
-install:
+install:init-config
 	@rm -rf $(ORANGE_BIN)
 	@rm -rf $(ORANGE_HOME)
 	@mkdir -p $(ORANGE_HOME)

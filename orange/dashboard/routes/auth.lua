@@ -91,7 +91,7 @@ return function(config, store)
         res.locals.userid = 0
         res.locals.create_time = ""
         req.session.destroy()
-        res:redirect("/login")
+        res:redirect("/auth/login")
     end)
 
 
